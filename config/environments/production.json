@@ -1,0 +1,12 @@
+{
+  "env": "production",
+  "redis": [
+    {
+      "host": "localhost",
+      "port": 6379,
+      "auth": "",
+      "DB": 0,
+      "options": {}
+    }
+  ]
+}
