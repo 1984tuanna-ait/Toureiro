@@ -61,12 +61,12 @@ const ToureiroSidebar = React.createClass({
     const _this = this;
     $.get('queue/?name=' + encodeURIComponent(queue), function(response) {
       if (response && response.status === 'OK') {
-        let state = {
+        var state = {
           queue: response.queue,
         };
         if (!_this.state.queue) {
           const stats = response.queue.stats;
-          let category = 'active';
+          var category = 'active';
           if (stats['active'] > 0) {
             category = 'active';
           } else if (stats['wait'] > 0) {
