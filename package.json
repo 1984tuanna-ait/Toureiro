@@ -4,7 +4,7 @@
   "description": "A graphic interface for bull.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server.js",
+    "start": "export ENV=development && node ./server.js",
     "test": "mocha tests/test_*"
   },
   "repository": {

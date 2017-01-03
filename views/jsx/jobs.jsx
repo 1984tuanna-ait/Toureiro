@@ -18,7 +18,7 @@ var Job = React.createClass({
         queue: this.props.queue,
         id: this.props.job.id
       }, function(response) {
-        if (response.status === 'OK') {
+        if (response && response.status === 'OK') {
           if (_this.props.onJobUpdate) {
             _this.props.onJobUpdate();
           }
@@ -37,7 +37,7 @@ var Job = React.createClass({
         queue: this.props.queue,
         id: this.props.job.id
       }, function(response) {
-        if (response.status === 'OK') {
+        if (response && response.status === 'OK') {
           if (_this.props.onJobUpdate) {
             _this.props.onJobUpdate();
           }
@@ -56,7 +56,7 @@ var Job = React.createClass({
         queue: this.props.queue,
         id: this.props.job.id
       }, function(response) {
-        if (response.status === 'OK') {
+        if (response && response.status === 'OK') {
           if (_this.props.onJobUpdate) {
             _this.props.onJobUpdate();
           }
@@ -170,13 +170,13 @@ var JobDetails = React.createClass({
         queue: this.props.queue,
         id: id
       }, function(response) {
-        if (response.status === 'OK') {
+        if (response && response.status === 'OK') {
           _this.setState({
             id: id,
             job: response.job
           });
         } else {
-          console.log(response);
+          console.log('Get job on queue [' + _this.props.queue + '] with id ' + id + ' error: ' + response ? JSON.stringify(response) : 'null');
           _this.setState({
             id: id,
             job: null
@@ -250,7 +250,7 @@ var ToureiroJobs = React.createClass({
         page: _this.state.page,
         limit: _this.state.limit
       }, function(response) {
-        if (response.status === 'OK') {
+        if (response && response.status === 'OK') {
           if (response.jobs.length === 0 && response.total > 0) {
             _this.setState({
               page: 0
@@ -264,7 +264,7 @@ var ToureiroJobs = React.createClass({
             });
           }
         } else {
-          console.log(response);
+          console.log('Fetch jobs error: ' + response ? JSON.stringify(response) : 'null');
         }
       });
     });
